@@ -22,13 +22,19 @@ body {
     background: #003366;
     padding: 10px;
     text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
 }
 
 .nav a {
     color: white;
-    margin: 0 15px;
+    margin: 0 10px;
+    padding: 5px 0;
     text-decoration: none;
     font-weight: bold;
+    white-space: nowrap;
 }
 
 .nav a:hover {
@@ -49,6 +55,7 @@ body {
     margin: 20px 0;
 }
 
+/* Buttons now wrap properly on mobile */
 .btn {
     background: #0066cc;
     color: white;
@@ -58,6 +65,10 @@ body {
     cursor: pointer;
     font-size: 16px;
     margin: 5px;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    white-space: nowrap;
 }
 
 .btn:hover {
@@ -83,3 +94,72 @@ th {
 
 .success { color: green; font-weight: bold; }
 .danger { color: red; font-weight: bold; }
+
+/*Mobile Fixes*/
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+        margin: 15px auto;
+    }
+
+    .card {
+        padding: 20px 15px;
+    }
+
+    /* Buttons stack vertically and take full width on small screens */
+    .btn {
+        display: block;
+        width: 100%;
+        margin: 8px 0;
+    }
+
+    /* Center any button containers */
+    .card div[style*="text-align:center"] {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+     /* Tables scroll horizontally instead of breaking  */
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    th, td {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+
+    .nav a {
+        margin: 5px;
+        font-size: 14px;
+    }
+
+    .header h1 {
+        font-size: 20px;
+    }
+
+    .header p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 10px 15px;
+    }
+
+    .header h1 {
+        font-size: 18px;
+    }
+
+    .card {
+        padding: 15px 10px;
+    }
+
+    .card h2 {
+        font-size: 18px;
+    }
+}
